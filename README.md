@@ -15,6 +15,7 @@
 | ブログ記事テンプレート | [docs/blog-template.md](docs/blog-template.md) |
 | Publications テンプレート | [docs/publication-template.md](docs/publication-template.md) |
 | 下書き | [docs/draft.md](docs/draft.md) |
+| Cloudflare Pages | [docs/cloudflare-pages.md](docs/cloudflare-pages.md) |
 
 ## クイックスタート
 
@@ -22,8 +23,11 @@
 npm install
 npm run dev      # http://localhost:1313/
 npm run build    # public/ を生成
-npm run deploy   # Cloudflare へデプロイ
+npm run deploy   # Cloudflare へデプロイ（手動時）
 ```
+
+Cloudflare Pages の Build command は **`npm run build`**（`hugo` 単体は不可）。  
+→ [docs/cloudflare-pages.md](docs/cloudflare-pages.md)
 
 ## 構成
 
