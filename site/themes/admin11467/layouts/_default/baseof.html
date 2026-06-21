@@ -10,24 +10,33 @@
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
   {{ $js := resources.Get "js/theme.js" | minify | fingerprint }}
   <script src="{{ $js.RelPermalink }}" defer></script>
+  {{ $navJs := resources.Get "js/nav.js" | minify | fingerprint }}
+  <script src="{{ $navJs.RelPermalink }}" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-title" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
-      <nav>
+      <div class="site-header__row">
+        <a class="site-title" href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+        <div class="site-header__controls">
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="ダークモードに切り替え">
+            <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle__label">ダーク</span>
+          </button>
+          <button id="nav-toggle" class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="メニューを開く">
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+            <span class="nav-toggle__bar"></span>
+          </button>
+        </div>
+      </div>
+      <nav id="site-menu" class="site-menu">
         <ul class="site-nav">
           {{ range .Site.Menus.main }}
           <li>
             <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} class="active"{{ end }}{{ if strings.HasPrefix .URL "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a>
           </li>
           {{ end }}
-          <li>
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="ダークモードに切り替え">
-              <span class="theme-toggle__icon" aria-hidden="true">☾</span>
-              <span class="theme-toggle__label">ダーク</span>
-            </button>
-          </li>
         </ul>
       </nav>
     </div>
