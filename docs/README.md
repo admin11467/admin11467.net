@@ -7,6 +7,7 @@ Admin11467.net（Hugo）の運用・執筆向けドキュメントです。
 | ドキュメント | 内容 |
 |---|---|
 | [getting-started.md](getting-started.md) | ローカル開発・ビルド・デプロイ |
+| [cloudflare-pages.md](cloudflare-pages.md) | Cloudflare Pages の設定 |
 | [content-guide.md](content-guide.md) | `content/` と `site/` の役割 |
 | [blog-template.md](blog-template.md) | ブログ記事のテンプレート（コピペ用） |
 | [publication-template.md](publication-template.md) | Publications（実績）のテンプレート |
