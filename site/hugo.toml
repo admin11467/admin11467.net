@@ -1,0 +1,49 @@
+contentDir = "../content"
+publishDir = "../public"
+baseURL = "https://admin11467.net/"
+languageCode = "ja"
+title = "Admin11467"
+theme = "admin11467"
+enableRobotsTXT = true
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  author = "Admin11467"
+  copyrightYear = 2024
+  description = "学生開発者 / 開発メモ・学び・作ったもの"
+  profileImage = "/images/profile.jpg"
+  github = "https://github.com/admin11467"
+  tagline = "学生開発者 / 開発メモ・学び・作ったもの"
+  intro = "このサイトでは、開発のメモや学びのログ、成果物をまとめています。"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Publications"
+    url = "/publications/"
+    weight = 2
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 3
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = 4
+  [[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/admin11467"
+    weight = 5
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[markup]
+  [markup.highlight]
+    noClasses = false

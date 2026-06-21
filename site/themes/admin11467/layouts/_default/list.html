@@ -1,0 +1,26 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+{{ with .Content }}
+<p class="page-intro">{{ . }}</p>
+{{ end }}
+<hr class="page-divider">
+<ul class="post-list">
+  {{ range .Pages.ByDate.Reverse }}
+  <li class="post-item">
+    <h2 class="post-item__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <p class="post-item__meta">
+      {{ .Date.Format "2006-01-02" }}
+      {{ with .Section }} · {{ . }}{{ end }}
+      {{ with .Params.tags }}
+      · {{ range $i, $tag := . }}{{ if $i }}, {{ end }}<a href="{{ "/tags/" | relURL }}{{ $tag | urlize }}/">#{{ $tag }}</a>{{ end }}
+      {{ end }}
+    </p>
+    {{ with .Params.summary }}
+    <p class="post-item__summary">{{ . }}</p>
+    {{ else }}
+    <p class="post-item__summary">{{ .Summary }}</p>
+    {{ end }}
+  </li>
+  {{ end }}
+</ul>
+{{ end }}

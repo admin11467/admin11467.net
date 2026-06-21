@@ -1,0 +1,7 @@
+name = "admin11467"
+license = "MIT"
+description = "Minimal personal site theme for Admin11467"
+min_version = "0.120.0"
+
+[author]
+  name = "Admin11467"

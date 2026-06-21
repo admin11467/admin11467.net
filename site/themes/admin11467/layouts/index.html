@@ -1,0 +1,57 @@
+{{ define "main" }}
+<section class="profile-hero">
+  <img class="profile-hero__image" src="{{ .Site.Params.profileImage | relURL }}" alt="{{ .Site.Params.author }}">
+  <div class="profile-hero__content">
+    <h1 class="profile-hero__name">{{ .Site.Params.author }}</h1>
+    <p class="profile-hero__tagline">{{ .Site.Params.tagline }}</p>
+    <p class="profile-hero__desc">{{ .Site.Params.intro }}</p>
+    <div class="profile-hero__actions btn-row">
+      <a class="btn" href="{{ "/blog/" | relURL }}">Blog</a>
+      <a class="btn" href="{{ "/publications/" | relURL }}">Publications</a>
+      <a class="btn" href="{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <h2>Hello, I am {{ .Site.Params.author }}</h2>
+  <div class="home-intro">{{ .Content }}</div>
+  <ul>
+    <li><strong>Blog</strong>: 技術メモ・学びのログ（タグで整理）</li>
+    <li><strong>Publications</strong>: 成果物/発表/リンク集</li>
+  </ul>
+  <p class="home-links-label">よく使うリンク:</p>
+  <ul>
+    <li><a href="{{ "/blog/" | relURL }}">Blog</a></li>
+    <li><a href="{{ "/publications/" | relURL }}">Publications</a></li>
+  </ul>
+  <div class="btn-row">
+    <a class="btn" href="{{ "/publications/" | relURL }}">Publications</a>
+    <a class="btn" href="{{ "/blog/" | relURL }}">Blog</a>
+    <a class="btn" href="{{ "/search/" | relURL }}">Search</a>
+    <a class="btn" href="{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<section class="home-section">
+  <h2>Latest posts</h2>
+  <ul class="post-list">
+    {{ range (where .Site.RegularPages "Section" "blog").ByDate.Reverse | first 5 }}
+    <li class="post-item">
+      <h3 class="post-item__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p class="post-item__meta">
+        {{ .Date.Format "2006-01-02" }}
+        {{ with .Params.tags }}
+        · {{ range $i, $tag := . }}{{ if $i }}, {{ end }}<a href="{{ "/tags/" | relURL }}{{ $tag | urlize }}/">#{{ $tag }}</a>{{ end }}
+        {{ end }}
+      </p>
+      {{ with .Params.summary }}
+      <p class="post-item__summary">{{ . }}</p>
+      {{ else }}
+      <p class="post-item__summary">{{ .Summary }}</p>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

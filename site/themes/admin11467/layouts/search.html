@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1 class="page-title">Search</h1>
+<p class="page-intro">サイト内検索</p>
+<hr class="page-divider">
+<p>Pagefind を使ったサイト内検索です。</p>
+<div id="search"></div>
+<link href="{{ "/pagefind/pagefind-ui.css" | relURL }}" rel="stylesheet">
+<script src="{{ "/pagefind/pagefind-ui.js" | relURL }}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof PagefindUI !== "undefined") {
+      new PagefindUI({ element: "#search", showSubResults: true, resetStyles: false });
+    }
+  });
+</script>
+{{ end }}

@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="post-header">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ if .Date }}
+  <p class="post-item__meta">
+    {{ .Date.Format "2006-01-02" }}
+    {{ with .Section }} · {{ . }}{{ end }}
+    {{ with .Params.tags }}
+    · {{ range $i, $tag := . }}{{ if $i }}, {{ end }}<a href="{{ "/tags/" | relURL }}{{ $tag | urlize }}/">#{{ $tag }}</a>{{ end }}
+    {{ end }}
+  </p>
+  {{ end }}
+  <hr class="page-divider">
+</article>
+<div class="post-content">
+  {{ .Content }}
+</div>
+{{ end }}
