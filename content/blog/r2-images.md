@@ -1,21 +1,18 @@
 ---
-title: "R2配信の画像を記事に貼る"
-date: 2024-03-25
+title: "とりあえずUnityに触りたかった"
+date: 2025-08-04
 draft: false
-tags: ["hugo", "cloudflare", "r2"]
-summary: "assets-src/に置いた画像をR2へ同期し、記事内で参照する最小手順。"
+tags: ["Unity", "Game"]
+summary: "とりあえず、Unityで一本ゲームを作りたい"
 ---
+Unityを勉強するために、とりあえずゲームをつくりました
 
-`assets-src/` に置いた画像を R2 へ同期し、記事内で参照する最小手順をまとめます。
+工夫した点とかはあまり作れませんでしたが、Unity 2DやUnity C#に多少なりとも触れられたことはいい経験になったと思います
 
-## 手順
+正直、改善したい点やできる部分はありますが、もう気力がなくなってきました...いつかはUnityを自由に使いこなせるようになりたいです...
 
-1. 画像を `assets-src/` に配置する
-2. R2 バケットへ同期する
-3. 記事内で R2 の URL を参照する
+# リンク
 
-```markdown
-![説明](https://assets.admin11467.net/example.png)
-```
+[Github](https://github.com/admin11467/Jump-to-the-moon)
 
-これで Hugo ビルド時にローカル画像を含めず、R2 から配信できます。
+[itch.io](https://admin11467.itch.io/jump-to-the-moon)
